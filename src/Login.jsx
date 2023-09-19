@@ -2,10 +2,10 @@ import React, { useRef } from 'react'
 import Header from './Header'
 import { useState } from 'react'
 import { auth } from './utils/firebase'
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
 import { checkValidateform } from './utils/Validate'
 const Login = () => {
-    const [isloggedin, setisloggedin] = useState(false)
+    const [isloggedin, setisloggedin] = useState(true)
     const [errormessage, seterrormessage] = useState(null)
     const email=useRef(null)
     const password=useRef(null)
@@ -17,7 +17,7 @@ const Login = () => {
         console.log("clicked");
         const message=checkValidateform(email.current.value,password.current.value)
         seterrormessage(message)
-        if(!isloggedin){
+        if(isloggedin){
             createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
             .then((userCredential) => {
               // Signed in 
@@ -33,6 +33,20 @@ const Login = () => {
             });  
 
             
+        }
+        else{
+          signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log(user);
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    seterrormessage(errorCode+"-"+errorMessage)
+  });
         }
 
 
