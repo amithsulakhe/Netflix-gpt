@@ -1,0 +1,10 @@
+.specialmovies::-webkit-scrollbar{
+    display: none;
+}
+.child-trending{
+    position: absolute;
+    width: 100%;
+    top: -250px;
+    background: black;
+
+}

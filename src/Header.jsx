@@ -38,7 +38,7 @@ const Header = () => {
     });
   }
   return (
-    <div className='flex justify-between align-middle absolute w-screen px-8 py-3 bg-gradient-to-b from-black'>
+    <div className='flex justify-between fixed z-10 align-middle absolute w-screen px-8 py-3 bg-gradient-to-b from-black'>
         <img className='w-44' src={logo} alt="logo" />
         <div>
           <button className='bg-red-600 rounded-md text-white p-2' onClick={signOutHandler}>Sign Out</button>

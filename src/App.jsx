@@ -1,4 +1,5 @@
 import Body from "./Body"
+import "./App.css"
 import { Provider } from "react-redux"
 import appStore from "./utils/appStore"
 
