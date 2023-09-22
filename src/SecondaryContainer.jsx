@@ -9,9 +9,13 @@ return (
 
   <>
 <div className="parent-trending relative">
+
   <div className="child-trending text-white">
   <MovieList title={"Now Playing"} movies={movies.nowPlaying}/>
-  <MovieList title={"Trending"} movies={movies.nowPlaying}/>
+  <MovieList title={"Toprated"} movies={movies.nowPlayingToprated}/>
+  <MovieList title={"Upcoming"} movies={movies.nowPlayingUpcomimg}/>
+  <MovieList title={"Popular"} movies={movies.nowPlayingPopular}/>
+
   </div>
 
 </div>
