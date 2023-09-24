@@ -7,3 +7,20 @@ export const options = {
     }
   };
   export const Img_Cdn="https://image.tmdb.org/t/p/w500/"
+  export const language={
+    en:{
+      naam:"Search",
+      gptPlaceholder:"What can I search For you"
+    },
+    hindi:{
+      naam:"खोज",
+      gptPlaceholder:"मैं आपके लिए क्या खोज सकता हूँ"
+    },
+    spanish:{
+      naam:"Buscar",
+      gptPlaceholder:"¿Qué puedo buscar para ti?"
+    },
+  }
+
+
+  export const OPEN_AI_KEY="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"
