@@ -2,6 +2,7 @@ import Body from "./Body"
 import "./App.css"
 import { Provider } from "react-redux"
 import appStore from "./utils/appStore"
+import Shimmer from "./Shimmer"
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <div >
         <Provider store={appStore}>
         <Body/>
+        {/* <Shimmer/> */}
         </Provider>
       </div>
     </>

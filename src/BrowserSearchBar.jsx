@@ -1,11 +1,13 @@
 import React, { useRef } from 'react'
 import { useState } from 'react'
 import { language, options } from './utils/constants'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import openai from './utils/openai'
+import { addgptsearchedmovies } from './utils/gptSlice'
 const BrowserSearchBar = () => {
     const lang=useSelector((store)=>store.lang.chooselang)
-    console.log(lang);
+const dispatch=useDispatch()
+    // console.log(lang);
     const ref=useRef()
 
 const particularMovieSearch=async (movie)=>{
@@ -32,14 +34,12 @@ const particularMovieSearch=async (movie)=>{
         console.log(movie);
         const movies=movie.map((movie)=>particularMovieSearch(movie))
         const foundMovie=await Promise.allSettled(movies)
+        dispatch(addgptsearchedmovies({movieNames:movie,MovieResults:foundMovie}))
         console.log(foundMovie);
-         
     }
 
   return (
     <div className='pt-[20%] flex justify-center'>
-
-
         <form action="" onSubmit={submitform} className='bg-black text-white w-1/2 grid grid-cols-12'>
             <input ref={ref} className='col-span-9   py-4 px-8 m-2 outline-none rounded-b-3xl rounded-t-3xl text-black'placeholder={language[lang].gptPlaceholder} type="text"  />
             <button className='col-span-3 py-4 px-8  bg-red-500 m-2 rounded-md'>{language[lang].naam}</button>

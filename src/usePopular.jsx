@@ -13,6 +13,7 @@ const usePopular = () => {
         // const trailer = getData.filter(video => video.type === "Trailer")
         // const firsttrailer = trailer.length?trailer[0]:getData[0]
         dispatch(addplayingPopular(getData))
+        
         // console.log(firsttrailer);
       }
       useEffect(() => {
