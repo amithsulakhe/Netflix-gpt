@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from './utils/firebase';
 import { useNavigate } from 'react-router-dom';
@@ -10,6 +10,8 @@ import { addLanguageSlice } from './utils/langSlice';
 const Header = () => {
   const navigate=useNavigate()
   const dispatch=useDispatch()
+  const userName=useSelector((store)=>store.user)
+  // console.log(userName);
   const languageshower=useSelector((store)=>store.gpt.gptslicer)
   useEffect(()=>{
     const unsubsrcibe=onAuthStateChanged(auth, (user) => {
@@ -52,13 +54,18 @@ const Header = () => {
     <div className='flex justify-between fixed z-10 align-middle absolute w-screen px-8 py-3 bg-gradient-to-b from-black'>
         <img className='w-44' src={logo} alt="logo" />
 
-        <div>
+        <div className='grid grid-flow-col place-items-center'>
           {
             languageshower && <select name="" id="" className='bg-sky-900 text-white py-2 px-3 outline-solid outline-2 outline-sky-400 border-solid border-2 border-sky-400 rounded-lg' onChange={handleoptions} >
             <option value="en">English</option>
             <option value="hindi">Hindi</option>
             <option value="spanish">Spanish</option>
           </select>
+          }
+          {
+            userName?.displayName &&
+          <h1 className='bg-white text-black py-2 px-4 mx-4 my-2 font-bold text-center rounded-lg'>{ userName.displayName }</h1>
+
           }
    
           <button className={!languageshower?'bg-purple-600 py-2 px-4 rounded-lg mx-4 text-white':'bg-red-600 py-2 px-4 rounded-lg mx-4 text-white'} onClick={handlechange}>{!languageshower?"GPT Search":"Home"}</button>

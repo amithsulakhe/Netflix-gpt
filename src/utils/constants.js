@@ -23,4 +23,5 @@ export const options = {
   }
 
 
-  export const OPEN_AI_KEY="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"
+  export const OPEN_AI_KEY="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"
+  
