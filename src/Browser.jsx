@@ -9,6 +9,8 @@ import SecondaryContainer from './SecondaryContainer'
 import GptSearch from './GptSearch'
 const Browser = () => {
   const dispatch = useDispatch()
+  const nowPlayingmovies=useSelector((store)=>store.movies.nowPlaying)
+
   const GptSearchenabler = useSelector((store) => store.gpt.gptslicer)
   const getdataMovies = async () => {
     const data = await fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', options)
@@ -18,7 +20,7 @@ const Browser = () => {
 
   }
   useEffect(() => {
-    getdataMovies()
+   !nowPlayingmovies && getdataMovies()
   }, [])
   return (
     <div>

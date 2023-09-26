@@ -51,10 +51,10 @@ const Header = () => {
     dispatch(addLanguageSlice(e.target.value))
   }
   return (
-    <div className='flex justify-between fixed z-10 align-middle absolute w-screen px-8 py-3 bg-gradient-to-b from-black'>
-        <img className='w-44' src={logo} alt="logo" />
+    <div className='flex flex-col items-end justify-between fixed z-10 align-middle w-screen px-8 py-3 bg-gradient-to-b from-black md:flex-row'>
+        <img className='w-32 m-auto md:m-0' src={logo} alt="logo" />
 
-        <div className='grid grid-flow-col place-items-center'>
+        <div className={!languageshower?'grid  grid-flow-col w-3/5 place-items-center md:w-2/5':'grid grid-flow-col w-4/5 place-items-center md:w-2/5'}>
           {
             languageshower && <select name="" id="" className='bg-sky-900 text-white py-2 px-3 outline-solid outline-2 outline-sky-400 border-solid border-2 border-sky-400 rounded-lg' onChange={handleoptions} >
             <option value="en">English</option>

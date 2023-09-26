@@ -14,7 +14,7 @@ return (
 <div className="parent-trending relative ">
 
 
-  <div className="child-trending text-white">
+  <div className="child-trending text-white mt-[28%] md:mt-[15%]">
   <MovieList title={"Now Playing"} movies={movies.nowPlaying}/>
   <MovieList title={"Toprated"} movies={movies.nowPlayingToprated}/>
   <MovieList title={"Upcoming"} movies={movies.nowPlayingUpcomimg}/>

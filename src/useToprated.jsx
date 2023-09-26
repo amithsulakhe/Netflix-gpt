@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react'
 import { addplayingToprated } from './utils/movieSlice'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { options } from './utils/constants'
 
 const useToprated = () => {
     const dispatch=useDispatch()
+    const TopratedMovies=useSelector((store)=>store.movies.nowPlayingToprated)
+
     const getmoviePopular = async () => {
         const data = await fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
         const json = await data.json()
@@ -16,7 +18,7 @@ const useToprated = () => {
         // console.log(firsttrailer);
       }
       useEffect(() => {
-        getmoviePopular()
+      !TopratedMovies &&  getmoviePopular()
       }, [])
 }
 
