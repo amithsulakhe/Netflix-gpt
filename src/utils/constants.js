@@ -20,6 +20,10 @@ export const options = {
       naam:"Buscar",
       gptPlaceholder:"¿Qué puedo buscar para ti?"
     },
+    kannada:{
+      naam:"ಹುಡುಕಿ",
+      gptPlaceholder:"ನಾನು ನಿಮಗಾಗಿ ಏನು ಹುಡುಕಬಹುದು"
+    }
   }
 
 

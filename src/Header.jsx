@@ -60,6 +60,7 @@ const Header = () => {
             <option value="en">English</option>
             <option value="hindi">Hindi</option>
             <option value="spanish">Spanish</option>
+            <option value="kannada">Kannada</option>
           </select>
           }
           {
